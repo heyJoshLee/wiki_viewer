@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Wiki Viewer</title>
+  <link rel="stylesheet" href="css/main.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="javascripts/handlebars-v4.0.5.js"></script>
+  <script src="javascripts/search.js"></script>
+</head>
+<body>
+<main>
+ 
+  <div>
+    <input id="search_box" type="text" placeholder="search term">
+  </div>
+  <div id="search_results"></div>
+ 
+  <div id="random_button">Random Article</div>
+</main>
+<script type="x-handlebars-template" id="search_container">
+  <h1>Results for {{search_term}}</h1>
+  <ul>
+    {{#each searches}}
+      {{> search}}
+    {{/each}}
+  </ul>
+</script>
+<script type="text/x-handlebars-partial" id="search">
+  <li class="search_result">
+    <h1><a href="{{link}}" target="_blank">{{title}}</a></h1>
+    <p>{{body}}</p>
+  </li>
+ </script>
+</body>
+</html>
